@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "480477545160",
+    "project_id": "reps-diary",
+    "storage_bucket": "reps-diary.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:480477545160:android:b46b7e5d5015d36a0c9bfd",
+        "android_client_info": {
+          "package_name": "com.bj.repsdiary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "480477545160-4na2fgiqsm5j20o13hl14d89ver8vui4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYjn1NfrR6BCnHV47SWrHMZpflOP4nAks"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "480477545160-4na2fgiqsm5j20o13hl14d89ver8vui4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
