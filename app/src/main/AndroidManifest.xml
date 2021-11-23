@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RepsDiary">
         <activity
+            android:name=".Activity.Register"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Login"
             android:exported="false" />
         <activity

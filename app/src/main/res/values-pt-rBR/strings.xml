@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Reps Diary</string>
+  <string name="reps_diary">Reps Diary</string>
+  <string name="email">Email</string>
+  <string name="password">Senha</string>
+  <string name="login">Login</string>
+  <string name="register">Registrar</string>
+  <string name="confirm_password">Confirmar Senha</string>
+  <string name="back">Voltar</string>
+  <string name="logout">Logout</string>
+</resources>
