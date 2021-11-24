@@ -10,7 +10,7 @@ import com.bj.repsdiary.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class _Main extends AppCompatActivity {
 
   private Button mLogout;
   private FirebaseAuth mFirebaseAuth;
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     mLogout = findViewById(R.id.main_button_logout);
     mLogout.setOnClickListener(v -> {
       mFirebaseAuth.signOut();
-      Intent intent = new Intent(MainActivity.this, Login.class);
+      Intent intent = new Intent(_Main.this, Login.class);
       startActivity(intent);
       finish();
     });
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     super.onStart();
     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     if (currentUser == null) {
-      Intent intent = new Intent(MainActivity.this, Login.class);
+      Intent intent = new Intent(_Main.this, Login.class);
       startActivity(intent);
       finish();
     }

@@ -103,7 +103,7 @@ public class Register extends AppCompatActivity {
   }
 
   private void goToMainScreen() {
-    startActivity(new Intent(Register.this, MainActivity.class));
+    startActivity(new Intent(Register.this, _Main.class));
     finish();
   }
 
