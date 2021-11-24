@@ -9,4 +9,12 @@
   <string name="confirm_password">Confirmar Senha</string>
   <string name="back">Voltar</string>
   <string name="logout">Logout</string>
+  <string name="all_fields_necessary">Todos os campos são necessários!</string>
+  <string name="password_not_same">Parece que a senha confirmada não é a mesma...</string>
+  <string name="name">Nome</string>
+  <string name="error_bad_email_format">O email dado está mal formatado.</string>
+  <string name="error_small_password">A senha dada é inválida. [ Senhas devem ter pelo menos 6 caracteres ]</string>
+  <string name="error_email_already_taken">O email dado já está sendo usado por outra conta.</string>
+  <string name="error_invalid_user">Este usuário não consta na base de dados. Ele pode ter sido deletado.</string>
+  <string name="error_invalid_password">Essa senha é inválida ou o usuário não tem senha.</string>
 </resources>

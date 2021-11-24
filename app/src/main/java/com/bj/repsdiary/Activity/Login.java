@@ -14,11 +14,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bj.repsdiary.MainActivity;
 import com.bj.repsdiary.R;
+import com.bj.repsdiary.Utils.FirebaseHandling;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.Objects;
 
 public class Login extends AppCompatActivity {
 
@@ -66,13 +64,12 @@ public class Login extends AppCompatActivity {
         if (task.isSuccessful()) {
           goToMainScreen();
         } else {
-          String error = Objects.requireNonNull(task.getException()).getMessage();
-          Toast.makeText(Login.this, error, Toast.LENGTH_SHORT).show();
+          Toast.makeText(Login.this, FirebaseHandling.errorHandling(getApplicationContext(), task.getException()), Toast.LENGTH_LONG).show();
         }
       });
       mProgressBarLogin.setVisibility(View.INVISIBLE);
     } else {
-      Toast.makeText(Login.this, "All fields are necessary!", Toast.LENGTH_SHORT).show();
+      Toast.makeText(Login.this, R.string.all_fields_necessary, Toast.LENGTH_LONG).show();
     }
   }
 

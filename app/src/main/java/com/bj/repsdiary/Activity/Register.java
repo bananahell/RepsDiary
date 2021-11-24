@@ -14,14 +14,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.bj.repsdiary.MainActivity;
+import com.bj.repsdiary.Model.User;
 import com.bj.repsdiary.R;
+import com.bj.repsdiary.Utils.FirebaseHandling;
 import com.google.firebase.auth.FirebaseAuth;
-
-import java.util.Objects;
 
 public class Register extends AppCompatActivity {
 
+  private EditText mName;
   private EditText mEmail;
   private EditText mPassword;
   private CheckBox mPasswordVisibility;
@@ -37,6 +37,7 @@ public class Register extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_register);
 
+    mName = findViewById(R.id.register_edittext_name);
     mEmail = findViewById(R.id.register_edittext_email);
     mPassword = findViewById(R.id.register_edittext_password);
     mPasswordVisibility = findViewById(R.id.register_checkbox_passwordVisibility);
@@ -71,26 +72,33 @@ public class Register extends AppCompatActivity {
   }
 
   private void tryToRegisterWithEmailAndPassword() {
+    User user = new User();
+    String name = mName.getText().toString();
     String email = mEmail.getText().toString();
     String password = mPassword.getText().toString();
     String confirmPassword = mConfirmPassword.getText().toString();
-    if (!email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty()) {
+    user.setUserName(name);
+    user.setEmail(email);
+
+    if (!name.isEmpty() && !email.isEmpty() && !password.isEmpty() && !confirmPassword.isEmpty()) {
       if (password.equals(confirmPassword)) {
         mProgressBarRegister.setVisibility(View.VISIBLE);
         mFirebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
           if (task.isSuccessful()) {
+            user.setId(mFirebaseAuth.getUid());
+            user.saveToDB();
             goToMainScreen();
           } else {
-            String error = Objects.requireNonNull(task.getException()).getMessage();
-            Toast.makeText(Register.this, error, Toast.LENGTH_SHORT).show();
+            String error = FirebaseHandling.errorHandling(getApplicationContext(), task.getException());
+            Toast.makeText(Register.this, error, Toast.LENGTH_LONG).show();
           }
         });
         mProgressBarRegister.setVisibility(View.INVISIBLE);
       } else {
-        Toast.makeText(Register.this, "Seems like the confirmed password is not the same...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(Register.this, R.string.password_not_same, Toast.LENGTH_LONG).show();
       }
     } else {
-      Toast.makeText(Register.this, "All fields are necessary!", Toast.LENGTH_SHORT).show();
+      Toast.makeText(Register.this, R.string.all_fields_necessary, Toast.LENGTH_LONG).show();
     }
   }
 

@@ -23,14 +23,13 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    app:layout_constraintGuide_percent="0.4" />
+    app:layout_constraintGuide_percent="0.3" />
 
   <EditText
     android:id="@+id/login_edittext_email"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:autofillHints="emailAddress"
-    android:ems="10"
     android:hint="@string/email"
     android:inputType="textEmailAddress"
     android:minWidth="250dp"
@@ -47,7 +46,6 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:autofillHints="password"
-    android:ems="10"
     android:hint="@string/password"
     android:inputType="textPassword"
     android:minWidth="250dp"
